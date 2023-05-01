@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="mvm.daw.uf3.db.music.MusicDAOTest" time="0.12" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="mvm.daw.uf3.db.music.MusicDAOTest" time="0.387" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="18.0.2.1+1-1"/>
@@ -7,11 +7,12 @@
     <property name="maven.multiModuleProjectDirectory" value="/home/daw/NetBeansProjects/uf3_mvc_jdbc_2/uf3_mvc_jdbc"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
-    <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=":"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="user.country" value="ES"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="test" value="mvm.daw.uf3.db.music.MusicDAOTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/home/daw/NetBeansProjects/uf3_mvc_jdbc_2/uf3_mvc_jdbc"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
@@ -41,7 +42,7 @@
     <property name="java.class.path" value="/usr/local/netbeans-14/netbeans/java/maven/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="18"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/usr/local/netbeans-14/netbeans/java/maven-nblib/netbeans-eventspy.jar test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=mvm.daw.uf3.db.music.MusicDAOTest -Dmaven.ext.class.path=/usr/local/netbeans-14/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
     <property name="java.home" value="/usr/lib/jvm/jdk-18"/>
     <property name="user.language" value="es"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -56,8 +57,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="testFindAllSongs" time="0.052"/>
-  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="findSongByName" time="0.036"/>
-  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="findSongById" time="0.015"/>
-  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="deleteSong" time="0.017"/>
+  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="testFilterSongs" time="0.348"/>
+  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="testFindAllSongs" time="0.007"/>
+  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="findSongByName" time="0.011"/>
+  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="findSongById" time="0.007"/>
+  <testcase classname="mvm.daw.uf3.db.music.MusicDAOTest" name="deleteSong" time="0.014"/>
 </testsuite>
