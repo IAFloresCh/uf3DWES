@@ -49,7 +49,7 @@ public class MusicDAOTest {
         Music createdSong = musicDAO.createSong(4, "new song", 10, "Author", "album", 5);
         Music music = musicDAO.findSongById(4);
         Assert.assertNotNull(music);
-        Assert.assertEquals(4, createdSong.getId() );
+        Assert.assertEquals(4, createdSong.getId());
     }
 
     @Test
@@ -65,16 +65,39 @@ public class MusicDAOTest {
 
     @Test
     public void deleteSong() throws Exception {
-        int id = 1;
-        String name = "name";
-        float price = 2;
-        String author = "author";
-        String album = "album";
-        int rating = 5;
-        Music createdSong = musicDAO.createSong(id, name, price, author, album, rating);
+        Music createdSong = musicDAO.createSong(4, "Goodbye Yellow Brick Road", 10, "Elton John", "Goodbye Yellow Brick Road", 5);
         Assert.assertNotNull(createdSong);
         musicDAO.deleteSong(createdSong);
-        Music deletedUser = musicDAO.findSongById(id);
+        Music deletedUser = musicDAO.findSongById(4);
         Assert.assertNull(deletedUser);
     }
+
+    @Test
+    public void testFilterSongs() throws Exception {
+        musicDAO = new MusicDAO(dBConnection);
+        // Create test songs
+        Music song1 = musicDAO.createSong(4, "Goodbye Yellow Brick Road", 10, "Elton John", "Goodbye Yellow Brick Road", 5);
+        Music song2 = musicDAO.createSong(5, "Stairway to Heaven", 10, "Led Zeppelin", "Led Zeppelin IV", 5);
+        Music song3 = musicDAO.createSong(6, "Imagine", 10 ,"John Lennon", "Imagine", 4);
+
+        // Filtrar musicas por nombre
+        List<Music> filteredSongs = musicDAO.filterSongs("Yellow");
+        Assert.assertEquals(1, filteredSongs.size());
+        Assert.assertEquals(song1.getId(), filteredSongs.get(0).getId());
+
+        // Filtrar musicas por autor
+        filteredSongs = musicDAO.filterSongs("Led Zeppelin");
+        Assert.assertEquals(1, filteredSongs.size());
+        Assert.assertEquals(song2.getId(), filteredSongs.get(0).getId());
+
+        // Filtrar musicas por album
+        filteredSongs = musicDAO.filterSongs("Imagine");
+        Assert.assertEquals(1, filteredSongs.size());
+        Assert.assertEquals(song3.getId(), filteredSongs.get(0).getId());
+
+        // Filtrar musicas por no existente
+        filteredSongs = musicDAO.filterSongs("Query falso");
+        Assert.assertEquals(0, filteredSongs.size());
+    }
+
 }
